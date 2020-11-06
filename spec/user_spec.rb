@@ -24,9 +24,13 @@ describe User do
   end
 
   describe '.next_birthday' do
-    it 'returns for a birthday that has passed this year' do
+    it 'returns date for a birthday that has passed this year' do
       ralph = User.new('Ralph', Date.new(1986, 1, 1))
       expect(ralph.next_birthday).to eq Date.new(2021, 1, 1)
+    end
+    it 'returns date for a birthday of today' do
+      george = User.new('George', Date.new(1988, Date.today.month, Date.today.day))
+      expect(george.next_birthday).to eq Date.new(2021, Date.today.month, Date.today.day)
     end
   end
 end
