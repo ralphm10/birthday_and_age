@@ -23,6 +23,13 @@ describe User do
     end
   end
 
+  describe '.birthday_next_year' do
+    it 'returns date of birthday next year' do
+      ralph = User.new('Ralph', Date.new(1986, 1, 1))
+      expect(ralph.birthday_next_year).to eq Date.new(2021, 1, 1)
+    end
+  end
+
   describe '.next_birthday' do
     it 'returns date for a birthday that has passed this year' do
       ralph = User.new('Ralph', Date.new(1986, 1, 1))

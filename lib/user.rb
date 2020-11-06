@@ -19,7 +19,7 @@ class User
   # Returns a Date object for the user's current upcoming birthday
   def next_birthday
     if birthday_this_year.yday <= Date.today.yday
-      Date.new(Time.now.year.succ, date_of_birth.month, date_of_birth.day)
+      birthday_next_year
     else
       birthday_this_year
     end
@@ -27,6 +27,10 @@ class User
 
   def birthday_this_year
     Date.new(Date.today.year, date_of_birth.month, date_of_birth.day)
+  end
+
+  def birthday_next_year
+    Date.new(Time.now.year.succ, date_of_birth.month, date_of_birth.day)
   end
 end
 
