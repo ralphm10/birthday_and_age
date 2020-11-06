@@ -7,7 +7,6 @@ class User
     @date_of_birth = date_of_birth
   end
 
-  # Returns an Integer representing the user’s current age
   def age
     if Date.today.yday >= birthday_this_year.yday
       Date.today.year - date_of_birth.year
@@ -16,7 +15,6 @@ class User
     end
   end
 
-  # Returns a Date object for the user's current upcoming birthday
   def next_birthday
     if birthday_this_year.yday <= Date.today.yday
       birthday_next_year
@@ -37,8 +35,8 @@ end
 tests = [
   Date.new(1986, 1, 1),
   Date.new(1988, Date.today.month, Date.today.day),
-  Date.new(1990, 12, 30),
-  ]
+  Date.new(1990, 12, 30)
+]
 
 puts "====== ages ======"
 tests.each do |date|
