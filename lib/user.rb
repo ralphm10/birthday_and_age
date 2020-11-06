@@ -8,7 +8,7 @@ class User
   end
 # Returns an Integer representing the user’s current age
   def age
-    if Date.today.yday >= Date.new(Date.today.year, date_of_birth.month, date_of_birth.day).yday
+    if Date.today.yday >= birthday_this_year.yday
       Date.today.year - date_of_birth.year
     else
       (Time.now.year) -1 - date_of_birth.year
@@ -16,7 +16,9 @@ class User
   end
   # Returns a Date object for the user's current upcoming birthday
   def next_birthday
-
+    if birthday_this_year.yday < Date.today.yday
+      Date.new(Time.now.year.succ, date_of_birth.month, date_of_birth.day)
+    end
   end
 
   def birthday_this_year
