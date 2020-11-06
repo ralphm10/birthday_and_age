@@ -32,5 +32,9 @@ describe User do
       george = User.new('George', Date.new(1988, Date.today.month, Date.today.day))
       expect(george.next_birthday).to eq Date.new(2021, Date.today.month, Date.today.day)
     end
+    it 'returns date for a birthday still to come this year' do
+      ringo = User.new('Ringo', Date.new(1990, 12, 30))
+      expect(ringo.next_birthday).to eq Date.new(2020, 12, 30)
+    end
   end
 end
