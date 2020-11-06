@@ -18,6 +18,10 @@ class User
   def next_birthday
 
   end
+
+  def birthday_this_year
+    Date.new(Date.today.year, date_of_birth.month, date_of_birth.day)
+  end
 end
 
 tests = [
