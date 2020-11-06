@@ -11,4 +11,8 @@ describe User do
     john = User.new('John', Date.new(1988, Date.today.month, Date.today.day))
     expect(john.age).to eq 32
   end
+  it 'returns age for a birthday still to come this year' do
+    paul = User.new('Paul', Date.new(1990, 12, 30))
+    expect(paul.age).to eq 29
+  end
 end
